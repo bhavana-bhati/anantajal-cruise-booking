@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Destination</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .search-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-container input, .search-container select {
+            padding: 10px;
+            width: 200px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .search-btn {
+            background-color: #c2185b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        .search-btn:hover {
+            background-color: #8e1443;
+        }
+        .destination-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .destination-card {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 95%;
+            padding: 40px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+        .destination-card img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .destination-info {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+        .more-btn {
+            background-color: #c2185b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        .more-btn:hover {
+            background-color: #8e1443;
+        }
+        .reviews-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            gap: 15px;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .review-box {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+            height: 120px;
+            background-color: #f5f5dc;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+            position: relative;
+        }
+        .review-box:hover {
+            transform: scale(1.1);
+            background-color: #e0dac5;
+        }
+        .review-box.center::before {
+            content: "Review";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="color: #c2185b;">Cruise Destinations</h2>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="searchDestination" placeholder="Enter Destination">
+        <select id="searchBudget">
+            <option value="">Select Budget</option>
+            <option value="15000">₹15000 & below</option>
+            <option value="18000">₹18000 & below</option>
+            <option value="20000">₹20000 & above</option>
+        </select>
+        <select id="searchDuration">
+            <option value="">Select Duration</option>
+            <option value="2N/3D">2N/3D</option>
+            <option value="2N/2D">2N/2D</option>
+            <option value="1N/2D">1N/2D</option>
+            <option value="1N/1D">1N/1D</option>
+        </select>
+        <button class="search-btn" onclick="filterResults()">Search</button>
+    </div>
+
+    <!-- Cruise Listings -->
+    <div class="destination-container" id="destination-list">
+        <div class="destination-card" data-destination="Mumbai - Kochi" data-price="20000" data-duration="2N/3D">
+            <img src="C3.jpg" alt="Mumbai - Kochi">
+            <div class="destination-info">
+                <h3>Mumbai - Kochi</h3>
+                <p>Duration: 2N/3D</p>
+                <p>₹20000</p>
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+        </div>
+
+        <div class="destination-card" data-destination="Goa - Mumbai" data-price="19000" data-duration="1N/1D">
+            <img src="CRUISE.jpg" alt="Goa - Mumbai">
+            <div class="destination-info">
+                <h3>Goa - Mumbai</h3>
+                <p>Duration: 1N/1D</p>
+                <p>₹19000</p>
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+        </div>
+
+        <div class="destination-card" data-destination="Goa - Lakshadweep" data-price="21000" data-duration="1N/2D">
+            <img src="C1.webp" alt="Goa - Lakshadweep">
+            <div class="destination-info">
+                <h3>Goa - Lakshadweep</h3>
+                <p>Duration: 1N/2D</p>
+                <p>₹21000</p>
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterResults() {
+            let searchDestination = document.getElementById("searchDestination").value.trim().toLowerCase();
+            let searchBudget = document.getElementById("searchBudget").value;
+            let searchDuration = document.getElementById("searchDuration").value;
+
+            let cards = document.querySelectorAll(".destination-card");
+
+            cards.forEach(card => {
+                let destination = card.getAttribute("data-destination").toLowerCase();
+                let price = parseInt(card.getAttribute("data-price"));
+                let duration = card.getAttribute("data-duration");
+
+                let matchesDestination = searchDestination === "" || destination.includes(searchDestination);
+                let matchesBudget = searchBudget === "" || price <= parseInt(searchBudget);
+                let matchesDuration = searchDuration === "" || duration === searchDuration;
+
+                if (matchesDestination && matchesBudget && matchesDuration) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

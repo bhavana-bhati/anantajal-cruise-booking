@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        .gallery-header {
+            flex: 1;
+            text-align: left;
+        }
+        .gallery-header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .gallery-header p {
+            font-size: 18px;
+            color: gray;
+            margin: 5px 0;
+        }
+        .gallery-section {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .gallery-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-section img:hover {
+            transform: scale(1.05);
+        }
+        .view-gallery-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .view-gallery-button button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+        .lightbox.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .close, .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .close {
+            top: 10px;
+            right: 10px;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h1>GALLERY</h1>
+            <p>Quick Tour to Our Cruise</p>
+        </div>
+        <div class="gallery-section">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\d1.jpg" alt="Gallery Image 1" onclick="openLightbox(0)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\facility.jpg" alt="Gallery Image 2" onclick="openLightbox(1)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\adventure.jpg" alt="Gallery Image 3" onclick="openLightbox(2)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\holiday.jpg" alt="Gallery Image 4" onclick="openLightbox(3)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\waterpark.jpg" alt="Gallery Image 5" onclick="openLightbox(4)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\n2.webp" alt="Gallery Image 6" onclick="openLightbox(5)">
+            <div class="view-gallery-button">
+                <button onclick="openLightbox(0)">View Gallery</button>
+            </div>
+        </div>
+    </div>
+    <div class="lightbox" id="lightbox">
+        <button class="close" onclick="closeLightbox()">&times;</button>
+        <button class="prev" onclick="prevImage()">&#10094;</button>
+        <img id="lightbox-img" src="">
+        <button class="next" onclick="nextImage()">&#10095;</button>
+    </div>
+    <script>
+        const images = [
+            "C:\\Users\\bhavanabhati\\OneDrive\\Desktop\\project\\d1.jpg",
+            "C:\\Users\\bhavanabhati\\OneDrive\\Desktop\\project\\facility.jpg",
+            "C:\\Users\\bhavanabhati\\OneDrive\\Desktop\\project\\adventure.jpg",
+            "C:\\Users\\bhavanabhati\\OneDrive\\Desktop\\project\\holiday.jpg",
+            "C:\\Users\\bhavanabhati\\OneDrive\\Desktop\\project\\waterpark.jpg",
+            "C:\\Users\\bhavanabhati\\OneDrive\\Desktop\\project\\n2.webp"
+        ];
+        let currentIndex = 0;
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById("lightbox-img").src = images[currentIndex];
+            document.getElementById("lightbox").classList.add("active");
+        }
+        function closeLightbox() {
+            document.getElementById("lightbox").classList.remove("active");
+        }
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById("lightbox-img").src = images[currentIndex];
+        }
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("lightbox-img").src = images[currentIndex];
+        }
+    </script>
+</body>
+</html>

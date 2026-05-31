@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+        }
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            color: #d81b60;
+        }
+        .destination-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .destination-card {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .destination-card img {
+            width: 30%;
+            height: auto;
+        }
+        .destination-card-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .destination-card-content h3 {
+            margin: 0;
+        }
+        .reveal-price {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .reveal-price:hover {
+            background-color: #c2185b;
+        }
+        /* Login Popup */
+        #login-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        #login-popup h3 {
+            margin: 0 0 10px;
+        }
+        #login-popup input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #login-popup button {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Destination Section -->
+    <section id="destinations">
+        <h2>Destinations</h2>
+        <div class="destination-section">
+            <!-- Destination Cards -->
+            <div class="destination-card">
+                <img src="images/mumbai_kochi.jpg" alt="Mumbai to Kochi">
+                <div class="destination-card-content">
+                    <h3>Mumbai - Kochi</h3>
+                    <p>Duration: 2N/3D</p>
+                    <button class="reveal-price" data-price="₹12,000">Reveal Price</button>
+                </div>
+            </div>
+			  <section id="destinations">
+        <h2>Destinations</h2>
+        <div class="destination-section">
+            <!-- Destination Cards -->
+            <div class="destination-card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\image2.jpg" alt="Mumbai to Kochi">
+                <div class="destination-card-content">
+                    <h3>Mumbai - Kochi</h3>
+                    <p>Duration: 2N/3D</p>
+                    <button class="reveal-price" data-price="₹12,000">Reveal Price</button>
+                </div>
+            </div>
+			  <section id="destinations">
+        <h2>Destinations</h2>
+        <div class="destination-section">
+            <!-- Destination Cards -->
+            <div class="destination-card">
+                <img src="images/mumbai_kochi.jpg" alt="Mumbai to Kochi">
+                <div class="destination-card-content">
+                    <h3>Mumbai - Kochi</h3>
+                    <p>Duration: 2N/3D</p>
+                    <button class="reveal-price" data-price="₹12,000">Reveal Price</button>
+                </div>
+            </div>
+            
+        </div>
+		  <section id="destinations">
+        <h2>Destinations</h2>
+        <div class="destination-section">
+            <!-- Destination Cards -->
+            <div class="destination-card">
+                <img src="images/mumbai_kochi.jpg" alt="Mumbai to Kochi">
+                <div class="destination-card-content">
+                    <h3>Mumbai - Kochi</h3>
+                    <p>Duration: 2N/3D</p>
+                    <button class="reveal-price" data-price="₹12,000">Reveal Price</button>
+                </div>
+            </div>
+            
+        </div>
+		  <section id="destinations">
+        <h2>Destinations</h2>
+        <div class="destination-section">
+            <!-- Destination Cards -->
+            <div class="destination-card">
+                <img src="images/mumbai_kochi.jpg" alt="Mumbai to Kochi">
+                <div class="destination-card-content">
+                    <h3>Mumbai - Kochi</h3>
+                    <p>Duration: 2N/3D</p>
+                    <button class="reveal-price" data-price="₹12,000">Reveal Price</button>
+                </div>
+            </div>
+            <!-- Add more destinations similarly -->
+        </div>
+            <!-- Add more destinations similarly -->
+        </div>
+    </section>
+
+    <!-- Login Popup -->
+    <div id="overlay"></div>
+    <div id="login-popup">
+        <h3>Login Required</h3>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <script>
+        // Simulate user login status
+        let isLoggedIn = false;
+
+        // Get all "Reveal Price" buttons
+        const revealPriceButtons = document.querySelectorAll('.reveal-price');
+        const loginPopup = document.getElementById('login-popup');
+        const overlay = document.getElementById('overlay');
+
+        // Add event listeners to all "Reveal Price" buttons
+        revealPriceButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (isLoggedIn) {
+                    // Show the price
+                    this.textContent = this.getAttribute('data-price');
+                } else {
+                    // Show the login popup
+                    showLoginPopup();
+                }
+            });
+        });
+
+        // Show the login popup
+        function showLoginPopup() {
+            loginPopup.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        // Hide the login popup
+        function hideLoginPopup() {
+            loginPopup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+
+        // Login function
+        function login() {
+            // Simulate login (you can replace this with actual authentication)
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                isLoggedIn = true;
+                alert('Login Successful!');
+                hideLoginPopup();
+            } else {
+                alert('Please enter valid credentials.');
+            }
+        }
+
+        // Hide popup when clicking outside
+        overlay.addEventListener('click', hideLoginPopup);
+    </script>
+</body>
+</html>

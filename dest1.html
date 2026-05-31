@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Destination</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .destination-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .destination-card {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 95%;
+            padding: 40px;
+            margin-bottom: 1in;
+            transition: transform 0.3s;
+        }
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+        .destination-card img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .destination-info {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .price-btn, .more-btn {
+            display: inline-block;
+            background-color: #c2185b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .price-btn:hover, .more-btn:hover {
+            background-color: #8e1443;
+        }
+        .reviews-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            gap: 15px;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .review-box {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+            height: 120px;
+            background-color: #f5f5dc;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+            position: relative;
+        }
+        .review-box:hover {
+            transform: scale(1.1);
+            background-color: #e0dac5;
+        }
+        .review-box.center {
+            position: relative;
+        }
+        .review-box.center::before {
+            content: "Review";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: #c2185b;">Destinations</h2>
+    <div class="destination-container">
+        <div class="destination-card">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\image2.jpg" alt="Cruise Image">
+            <div class="destination-info">
+                <h3>Mumbai - Kochi</h3>
+                <p>Duration: 2N/3D</p>
+				<p>₹20000</p>
+               
+                <a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+    </div>
+    
+	    <h2 style="color: #c2185b;">Destinations</h2>
+    <div class="destination-container">
+        <div class="destination-card">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C1.webp" alt="Cruise Image">
+            <div class="destination-info">
+                <h3>Lakshadweep-Mumbai</h3>
+                <p>Duration: 2N/3D</p>
+				<p>₹16000</p>
+              
+                <a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+    </div>
+    
+	    <h2 style="color: #c2185b;">Destinations</h2>
+    <div class="destination-container">
+        <div class="destination-card">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C2.jpg" alt="Cruise Image">
+            <div class="destination-info">
+                <h3>Mumbai-Goa</h3>
+                <p>Duration: 2N/3D</p>
+				<p>₹12000</p>
+                
+                <a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\B.html"	class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+    </div>
+    
+	    <h2 style="color: #c2185b;">Destinations</h2>
+    <div class="destination-container">
+        <div class="destination-card">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C3.jpg" alt="Cruise Image">
+            <div class="destination-info">
+                <h3>Kochi-Lakshadweep</h3>
+                <p>Duration: 2N/3D</p>
+				<p>₹15000</p>
+                
+                <a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\B.html"class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+    </div>
+    
+	    <h2 style="color: #c2185b;">Destinations</h2>
+    <div class="destination-container">
+        <div class="destination-card">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C.jpg" alt="Cruise Image">
+            <div class="destination-info">
+                <h3>Lakshadweep-Goa</h3>
+                <p>Duration: 2N/3D</p>
+				<p>₹18000</p>
+              
+                <a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

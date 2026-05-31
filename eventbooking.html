@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ff758c;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            color: black;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+        input, button, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background: #ff0066;
+        }
+        .confirmation {
+            display: none;
+            background: white;
+            color: black;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="bookingForm">
+        <h2>Book Your Event</h2>
+        
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Your Phone:</label>
+        <input type="tel" id="phone" required>
+
+        <label for="eventType">Select Event Type:</label>
+        <select id="eventType">
+            <option value="Birthday">Birthday Party</option>
+            <option value="Anniversary">Anniversary Celebration</option>
+        </select>
+
+        <label for="hall">Select Hall:</label>
+        <select id="hall">
+            <option value="Small - $5000">Small Hall - $5000</option>
+            <option value="Medium - $10000">Medium Hall - $10000</option>
+            <option value="Large - $20000">Large Hall - $20000</option>
+        </select>
+
+        <label for="eventDate">Select Date & Time:</label>
+        <input type="datetime-local" id="eventDate" required>
+        
+        <button onclick="confirmBooking()">Confirm Booking</button>
+    </div>
+
+    <div class="confirmation" id="confirmationMessage">
+        <h2>Booking Confirmed!</h2>
+        <p><strong>Name:</strong> <span id="confName"></span></p>
+        <p><strong>Email:</strong> <span id="confEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="confPhone"></span></p>
+        <p><strong>Event Type:</strong> <span id="confEvent"></span></p>
+        <p><strong>Hall:</strong> <span id="confHall"></span></p>
+        <p><strong>Date & Time:</strong> <span id="confDate"></span></p>
+      <button onclick="location.href='eventM1.html'">Book Another Event</button>
+    </div>
+
+    <script>
+        function confirmBooking() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let eventType = document.getElementById("eventType").value;
+            let hall = document.getElementById("hall").value;
+            let eventDate = document.getElementById("eventDate").value;
+
+            if (!name || !email || !phone || !eventDate) {
+                alert("Please fill in all details!");
+                return;
+            }
+
+            document.getElementById("confName").innerText = name;
+            document.getElementById("confEmail").innerText = email;
+            document.getElementById("confPhone").innerText = phone;
+            document.getElementById("confEvent").innerText = eventType;
+            document.getElementById("confHall").innerText = hall;
+            document.getElementById("confDate").innerText = eventDate;
+
+            document.getElementById("bookingForm").style.display = "none";
+            document.getElementById("confirmationMessage").style.display = "block";
+        }
+    </script>
+</body>
+</html>

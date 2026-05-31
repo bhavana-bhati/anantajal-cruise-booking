@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+
+    <!-- FullCalendar CSS & JS for Event Calendar -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
+
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #f8f9fa; }
+        .container { max-width: 800px; margin: auto; padding: 20px; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 10px; }
+        button { background: #ff4081; border: none; padding: 10px 20px; color: white; font-size: 16px; cursor: pointer; border-radius: 5px; }
+        button:hover { background: #ff0066; }
+        input, select { padding: 10px; margin: 5px; width: 80%; }
+        #calendar { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎉 Event Management System</h1>
+
+    <!-- Event Calendar -->
+    <h2>📅 Interactive Event Calendar</h2>
+    <div id="calendar"></div>
+
+    <!-- Event Budget Calculator -->
+    <h2>💰 Event Budget Calculator</h2>
+    Guests: <input type="number" id="guests" value="50" min="1"><br>
+    Venue Cost: <input type="number" id="venueCost" value="2000" min="0"><br>
+    Catering per Person: <input type="number" id="cateringCost" value="25" min="0"><br>
+    Decoration Cost: <input type="number" id="decorationCost" value="500" min="0"><br>
+    <button onclick="calculateBudget()">Calculate</button>
+    <p>Total Budget: $<span id="totalCost">0</span></p>
+
+    <!-- AI-Powered Guest Seating -->
+    <h2>🪑 Smart Guest Seating</h2>
+    Guest Name: <input type="text" id="guestName"><br>
+    Relation: 
+    <select id="relation">
+        <option>Family</option>
+        <option>Friends</option>
+        <option>VIP</option>
+    </select><br>
+    <button onclick="addGuest()">Add Guest</button>
+
+    <h3>Seating Arrangement:</h3>
+    <ul id="seatingList"></ul>
+</div>
+
+<script>
+    // Initialize FullCalendar
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: [
+                { title: 'Wedding Event', start: '2025-04-05' },
+                { title: 'Corporate Meeting', start: '2025-04-12' }
+            ]
+        });
+        calendar.render();
+    });
+
+    // Event Budget Calculator
+    function calculateBudget() {
+        let guests = parseInt(document.getElementById("guests").value);
+        let venue = parseInt(document.getElementById("venueCost").value);
+        let catering = parseInt(document.getElementById("cateringCost").value);
+        let decoration = parseInt(document.getElementById("decorationCost").value);
+
+        if (guests < 1 || venue < 0 || catering < 0 || decoration < 0) {
+            alert("Please enter valid positive values.");
+            return;
+        }
+
+        let total = venue + (catering * guests) + decoration;
+        document.getElementById("totalCost").innerText = total;
+    }
+
+    // Smart Guest Seating
+    function addGuest() {
+        let guestName = document.getElementById("guestName").value.trim();
+        let relation = document.getElementById("relation").value;
+
+        if (guestName === "") {
+            alert("Please enter a guest name.");
+            return;
+        }
+
+        let listItem = document.createElement("li");
+        listItem.innerText = `${guestName} - ${relation}`;
+        document.getElementById("seatingList").appendChild(listItem);
+
+        document.getElementById("guestName").value = ""; // Clear input
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        .gallery-header {
+            text-align: left;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .gallery-header h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .gallery-header p {
+            font-size: 20px;
+            color: gray;
+            margin: 5px 0;
+        }
+        .gallery-header .description {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 80%;
+        }
+        .gallery-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-section img:hover {
+            transform: scale(1.05);
+        }
+        .view-gallery-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .view-gallery-button {
+            position: absolute;
+            bottom: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h1>Photo Gallery</h1>
+            <p>Enter for a quick tour</p>
+            <p class="description">Explore breathtaking views, luxurious accommodations, and exciting activities on our cruises. Immerse yourself in a world of adventure and relaxation.</p>
+        </div>
+        <div class="gallery-section">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\d1.jpg" alt="Gallery Image 1" onclick="openLightbox(0)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\facility.jpg" alt="Gallery Image 2" onclick="openLightbox(1)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\adventure.jpg" alt="Gallery Image 3" onclick="openLightbox(2)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\holiday.jpg" alt="Gallery Image 4" onclick="openLightbox(3)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\waterpark.jpg" alt="Gallery Image 5" onclick="openLightbox(4)">
+            <div class="view-gallery-container">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\n2.webp" alt="Gallery Image 6" onclick="openLightbox(5)">
+                <button class="view-gallery-button" onclick="openLightbox(0)">View Gallery</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

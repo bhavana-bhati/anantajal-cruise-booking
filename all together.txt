@@ -1,0 +1,986 @@
+1) header.php
+
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['user']);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anantjal Cruise</title>
+    <style>
+        /* Existing CSS (unchanged) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f0f7;
+            color: #333;
+        }
+        header {
+            background-color: #880e4f;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            background-color: #9c1448;
+        }
+
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><b>ANANTJAL CRUISE</b></h1>
+    <nav class="navbar">
+        <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="dest2.html">Find Cruise</a></li>
+            <li><a href="bokking.html">Book Cruise</a></li>
+
+            <?php if ($isLoggedIn): ?>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">My Account</a>
+                    <div class="dropdown-content">
+                        <a href="profile.php">My Profile</a>
+                        <a href="booking.php">My Booking</a>
+                        <a href="logout.php">Log Out</a>
+                    </div>
+                </li>
+            <?php else: ?>
+                <li><a href='http://localhost/loginsystem/login.php'>Login / Register</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+</header>
+
+</body>
+</html>
+
+
+
+2)login.php
+
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f0f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .otp-btn {
+            background-color: #880e4f;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .otp-btn:hover {
+            background-color: #9c1448;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login/Register</h2>
+        <form action="verify_otp.php" method="POST">
+            <input type="text" name="username" placeholder="Enter Username" required>
+            
+            <select name="country_code">
+                <option value="+91">🇮🇳 +91 (India)</option>
+                <option value="+1">🇺🇸 +1 (USA)</option>
+                <option value="+44">🇬🇧 +44 (UK)</option>
+                <option value="+971">🇦🇪 +971 (UAE)</option>
+            </select>
+
+            <input type="tel" name="phone" placeholder="Enter Phone Number" required>
+            <input type="text" name="otp" placeholder="Enter OTP" required>
+            <button type="submit" class="otp-btn">Continue</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+3)bokking.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Cruise</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #c2185b;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .booking-form input,
+        .booking-form select,
+        .booking-form button {
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+
+        .booking-form button {
+            background-color: #880e4f;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .booking-form button:hover {
+            background-color: #a5115f;
+        }
+
+        .details-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .ok-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #880e4f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .ok-button:hover {
+            background-color: #a5115f;
+        }
+    </style>
+</head>
+<body>
+
+<h1>BOOK YOUR CRUISE</h1>  
+
+<section id="booking-form">
+    <div class="booking-form" id="form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name">
+        <p class="error" id="nameError"></p>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address">
+        <p class="error" id="addressError"></p>
+
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" name="mobile">
+        <p class="error" id="mobileError"></p>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <p class="error" id="emailError"></p>
+             
+		 <label for="pick-up">Pick-up Point</label>
+        <select id="pick-up" name="pick-up">
+            <option value="kochi">Kochi</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="goa">Goa</option>
+            <option value="lakshadweep">Lakshadweep</option>
+        </select>
+	
+        <label for="destination">Choose Your Destination</label>
+        <select id="destination" name="destination">
+            <option value="kochi">Kochi</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="goa">Goa</option>
+            <option value="lakshadweep">Lakshadweep</option>
+        </select>
+
+        <label for="cruise-date">Select Date</label>
+        <input type="date" id="cruise-date" name="cruise-date">
+        <p class="error" id="dateError"></p>
+
+        <label for="cabin-type">Select Cabin Type</label>
+        <select id="cabin-type" name="cabin-type">
+            <option value="standard">Standard</option>
+            <option value="luxury">Luxury</option>
+            <option value="suite">Suite</option>
+            <option value="economy">Economy</option>
+        </select>
+
+        <label for="number-of-people">Number of People</label>
+        <input type="number" id="number-of-people" name="number-of-people" min="1">
+        <p class="error" id="peopleError"></p>
+
+        <label for="payment-mode">Payment Mode</label>
+        <select id="payment-mode" name="payment-mode">
+            <option value="cash-on-booking">Cash on Booking</option>
+        </select>
+
+        <button type="button" onclick="validateAndBook()">Book Now</button>
+    </div>
+</section>
+
+<div id="details-container" class="details-container"></div>
+
+<script>
+function validateAndBook() {
+    const name = document.getElementById("name").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pickUp = document.getElementById("pick-up").value;
+    const destination = document.getElementById("destination").value;
+    const date = document.getElementById("cruise-date").value;
+    const cabinType = document.getElementById("cabin-type").value;
+    const people = document.getElementById("number-of-people").value.trim();
+    const paymentMode = document.getElementById("payment-mode").value;
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobilePattern = /^[0-9]{10}$/;
+
+    let isValid = true;
+
+    function validateField(field, errorElement, message) {
+        if (!field) {
+            document.getElementById(errorElement).innerText = message;
+            isValid = false;
+        } else {
+            document.getElementById(errorElement).innerText = "";
+        }
+    }
+
+    validateField(name, "nameError", "Name is required");
+    validateField(address, "addressError", "Address is required");
+    validateField(date, "dateError", "Select a date");
+    validateField(people, "peopleError", "Enter the number of people");
+
+    if (!mobilePattern.test(mobile)) {
+        document.getElementById("mobileError").innerText = "Enter a valid 10-digit number";
+        isValid = false;
+    } else {
+        document.getElementById("mobileError").innerText = "";
+    }
+
+    if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerText = "Enter a valid email";
+        isValid = false;
+    } else {
+        document.getElementById("emailError").innerText = "";
+    }
+
+    // **New Validation: Only 1 person can book at a time**
+    if (people !== "1") {
+        document.getElementById("peopleError").innerText = "Only 1 person can book at a time.";
+        isValid = false;
+    } else {
+        document.getElementById("peopleError").innerText = "";
+    }
+
+    if (isValid) {
+        document.getElementById("form").style.display = "none";
+        displayUserDetails(name, address, mobile, email, pickUp, destination, date, cabinType, people, paymentMode);
+    }
+}
+function displayUserDetails(name, address, mobile, email,pickUp, destination, date, cabinType, people, paymentMode) {
+    document.getElementById("details-container").innerHTML = `
+        <h2>Booking Confirmed!</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Address:</strong> ${address}</p>
+        <p><strong>Mobile:</strong> ${mobile}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Departure Date:</strong> ${date}</p>
+        <p><strong>Cabin Type:</strong> ${cabinType}</p>
+        <p><strong>Number of People:</strong> ${people}</p>
+		<p><strong>Pick-up Point:</strong> ${pickUp}</p>
+        <p><strong>Destination:</strong> ${destination}</p>
+        <p><strong>Payment Mode:</strong> ${paymentMode}</p>
+        <button class="ok-button" onclick="goBack()">OK</button>
+    `;
+
+    document.getElementById("details-container").style.display = "flex";
+}
+
+function goBack() {
+    window.location.href = 'logo.html'; // Ensure logo.html is in the same folder
+}
+</script>
+</body>
+</html>
+
+
+
+3)dest2.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Destination</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .search-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-container input, .search-container select {
+            padding: 10px;
+            width: 200px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .search-btn {
+            background-color: #c2185b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        .search-btn:hover {
+            background-color: #8e1443;
+        }
+        .destination-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .destination-card {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 95%;
+            padding: 40px;
+            margin-bottom: 1in;
+            transition: transform 0.3s;
+        }
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+        .destination-card img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .destination-info {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+       .more-btn {
+            background-color: #c2185b;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .more-btn:hover {
+            background-color: #8e1443;
+        }
+        .reviews-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            gap: 15px;
+            width: 60%;
+            padding: 0 20px;
+        }
+        .review-box {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+            height: 120px;
+            background-color: #f5f5dc;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+            position: relative;
+        }
+        .review-box:hover {
+            transform: scale(1.1);
+            background-color: #e0dac5;
+        }
+        .review-box.center::before {
+            content: "Review";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="color: #c2185b;">Cruise Destinations</h2>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="searchDestination" placeholder="Enter Destination">
+        <select id="searchBudget">
+            <option value="">Select Budget</option>
+            <option value="15000">₹15000 & below</option>
+            <option value="18000">₹18000 & below</option>
+            <option value="20000">₹20000 & above</option>
+        </select>
+        <select id="searchDuration">
+            <option value="">Select Duration</option>
+            <option value="2N/3D">2N/3D</option>
+			  <option value="2N/2D">2N/2D</option>
+			    <option value="2N/3D">1N/2D</option> 
+				<option value="2N/3D">1N/1D</option>
+        </select>
+        <button class="search-btn" onclick="filterResults()">Search</button>
+    </div>
+
+    <!-- Cruise Listings -->
+    <div class="destination-container" id="destination-list">
+        
+        <div class="destination-card" data-destination="Mumbai - Kochi" data-price="20000" data-duration="2N/3D">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C3.jpg" alt="Mumbai - Kochi">
+            <div class="destination-info">
+                <h3>Mumbai - Kochi</h3>
+                <p>Duration: 2N/2D</p>
+                <p>₹20000</p>
+				
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+
+        <div class="destination-card" data-destination="Goa - Mumbai" data-price="16000" data-duration="2N/3D">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\CRUISE.jpg" alt="Goa - Mumbai">
+            <div class="destination-info">
+                <h3>Goa - Mumbai</h3>
+                <p>Duration: 1N/1D</p>
+                <p>₹19000</p>
+				
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+        
+		 <div class="destination-card" data-destination="Goa - Mumbai" data-price="16000" data-duration="2N/3D">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C1.webp" alt="Goa - Mumbai">
+            <div class="destination-info">
+                <h3>Goa - Lakshadweep</h3>
+                <p>Duration: 1N/2D</p>
+                <p>₹21000</p>
+				
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+		
+		 <div class="destination-card" data-destination="Goa - Mumbai" data-price="16000" data-duration="2N/3D">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\c1.jpg" alt="Goa - Mumbai">
+            <div class="destination-info">
+                <h3>Lakshadweep - Mumbai</h3>
+                <p>Duration: 2N/3D</p>
+                <p>₹23000</p>
+				
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+		
+		 <div class="destination-card" data-destination="Goa - Mumbai" data-price="16000" data-duration="2N/3D">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C1.webp" alt="Goa - Mumbai">
+            <div class="destination-info">
+                <h3>Lakshadweep- Kochi</h3>
+                <p>Duration: 1N/1D</p>
+                <p>₹17000</p>	
+				
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+		 <div class="destination-card" data-destination="Goa - Mumbai" data-price="16000" data-duration="2N/3D">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C.jpg" alt="Goa - Mumbai">
+            <div class="destination-info">
+                <h3>Goa - Kochi</h3>
+                <p>Duration: 2N/3D</p>
+                <p>₹18000</p>
+				
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+		
+		 <div class="destination-card" data-destination="Goa - Mumbai" data-price="16000" data-duration="2N/3D">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\c4.jpg" alt="Goa - Mumbai">
+            <div class="destination-info">
+                <h3>Kochi - Mumbai</h3>
+                <p>Duration: 2N/2D</p>
+                <p>₹19000</p>
+				
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+
+        <div class="destination-card" data-destination="Lakshadweep - Goa" data-price="12000" data-duration="2N/3D">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\C2.jpg" alt="Lakshadweep - Goa">
+            <div class="destination-info">
+                <h3>Kochi - Lakshadweep</h3>
+                <p>Duration: 1N/2D</p>
+                <p>₹16000</p>
+				
+                <a href="B.html" class="more-btn">More Info</a>
+            </div>
+            <div class="reviews-container">
+                <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+                <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+                <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+            </div>
+        </div>
+    
+
+    <script>
+        function filterResults() {
+            let searchDestination = document.getElementById("searchDestination").value.toLowerCase();
+            let searchBudget = document.getElementById("searchBudget").value;
+            let searchDuration = document.getElementById("searchDuration").value;
+
+            let cards = document.querySelectorAll(".destination-card");
+
+            cards.forEach(card => {
+                let destination = card.getAttribute("data-destination").toLowerCase();
+                let price = card.getAttribute("data-price");
+                let duration = card.getAttribute("data-duration");
+
+                let matchesDestination = !searchDestination || destination.includes(searchDestination);
+                let matchesBudget = !searchBudget || parseInt(price) <= parseInt(searchBudget);
+                let matchesDuration = !searchDuration || duration === searchDuration;
+
+                if (matchesDestination && matchesBudget && matchesDuration) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
+4)b.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect Cards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #fce4ec;
+        }
+
+        .facility-cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .card {
+            width: 350px;
+            height: 450px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+            transition: 0.5s ease-in-out;
+            border-radius: 15px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 176, 155, 0.5), rgba(150, 201, 61, 1));
+            z-index: 2;
+            transition: 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .card .info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            z-index: 3;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.5s ease-in-out;
+        }
+
+        .card:hover .info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: darkgreen;
+        }
+
+        .book-now {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #c2185b;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .book-now:hover {
+            background-color: #8e1443;
+        }
+
+        /* Modal Styling */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .modal h2 {
+            margin-bottom: 15px;
+        }
+
+        .modal button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .close-btn {
+            background: #c2185b ;
+            color: white;
+        }
+
+        .login-btn {
+            background: #c2185b;
+            color: white;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+ <h2 style="color: #c2185b; font-size:50px; height:90px">EXPLORE THE FACILITIES</h2>
+<section id="facility"> 
+    <div class="facility-cards">
+        <div class="card">
+            <img src="d5.avif" alt="Dining">
+            <div class="info">
+                <h3>DINING</h3>
+                <p>Enjoy our premium dining experience.</p>
+                <a href="dining.html" class="btn">Read more</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="w4.jpg" alt="Wedding">
+            <div class="info">
+                <h3>WEDDING</h3>
+                <p>Make your dream wedding a reality.</p>
+                <a href="wedding.html" class="btn">Read more</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="w3.jpg" alt="Adventure">
+            <div class="info">
+                <h3>ADVENTURE</h3>
+                <p>Get ready for thrilling adventures.</p>
+                <a href="adv.html" class="btn">Read more</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="nightparty.webp" alt="Party">
+            <div class="info">
+                <h3>PARTY</h3>
+                <p>Experience the best parties onboard.</p>
+                <a href="party.html" class="btn">Read more</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<button class="book-now" onclick="bookNow()">Book Now</button>
+
+<!-- Pop-up Modal -->
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="modal">
+    <h2>Login Required</h2>
+    <p>Please log in to book your experience.</p>
+    <button class="login-btn" onclick="redirectToLogin()">Log In</button>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+</div>
+
+<script>
+    function bookNow() {
+        const isLoggedIn = false; // Replace with actual login check logic
+        if (!isLoggedIn) {
+            document.getElementById("modal").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        } else {
+            alert('Booking successful!');
+        }
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    function redirectToLogin() {
+        window.location.href = 'login.php';
+    }
+</script>
+
+</body>
+</html>

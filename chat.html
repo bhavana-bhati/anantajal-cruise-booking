@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Chat Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #ff758c;
+            color: white;
+            padding: 20px;
+        }
+        .chat-box {
+            background: white;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            color: black;
+        }
+        #chat {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-box">
+        <h2>Live Chat</h2>
+        <div id="chat"></div>
+        <input type="text" id="userMessage" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let chat = document.getElementById("chat");
+            let userMessage = document.getElementById("userMessage").value;
+            if (userMessage.trim() === "") return;
+
+            let botReply = "I'm here to help! Please wait...";
+            if (userMessage.toLowerCase().includes("hello")) botReply = "Hello! How can I assist you?";
+            if (userMessage.toLowerCase().includes("available")) botReply = "You can view our schedule page.";
+			 if (userMessage.toLowerCase().includes("price")) botReply = "All details are available on schedule page.";
+			  if (userMessage.toLowerCase().includes("event")) botReply = "You can book an event on our Booking page.";
+			
+			
+	
+            chat.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+            chat.innerHTML += `<p><strong>Bot:</strong> ${botReply}</p>`;
+
+            document.getElementById("userMessage").value = "";
+            chat.scrollTop = chat.scrollHeight;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Your Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #ff758c;
+            color: white;
+            padding: 20px;
+        }
+        .container-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 45%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            color: black;
+            text-align: left;
+        }
+        .event-image {
+            width: 100%;
+            border-radius: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #ff0066;
+        }
+        /* Centering the Set Your Schedule Button */
+        .schedule-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .schedule-button {
+            width: 200px;
+            padding: 12px;
+            font-size: 18px;
+            background: #ff0066;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .schedule-button:hover {
+            background: #d60052;
+        }
+    </style>
+</head>
+<body>
+    <h1>Schedule an Event</h1>
+    <div class="container-wrapper">
+        <div class="container">
+            <img src="em.jpg" alt="Small Birthday Hall" class="event-image">
+            <h2>Birthday Party - Small Hall</h2>
+            <h3>Price: $5000</h3>
+            <button onclick="location.href='eventbooking.html'">BOOK NOW</button>
+        </div>
+
+        <div class="container">
+            <img src="em.jpg" alt="Medium Birthday Hall" class="event-image">
+            <h2>Birthday Party - Medium Hall</h2>
+            <h3>Price: $10000</h3>
+            <button onclick="location.href='eventbooking.html'">BOOK NOW</button>
+        </div>
+
+        <div class="container">
+            <img src="birthday_large.jpg" alt="Large Birthday Hall" class="event-image">
+            <h2>Birthday Party - Large Hall</h2>
+            <h3>Price: $20000</h3>
+            <button onclick="location.href='eventbooking.html'">BOOK NOW</button>
+        </div>
+
+        <div class="container">
+            <img src="anniversary_small.jpg" alt="Small Anniversary Hall" class="event-image">
+            <h2>Anniversary Celebration - Small Hall</h2>
+            <h3>Price: $5000</h3>
+            <button onclick="location.href='eventbooking.html'">BOOK NOW</button>
+        </div>
+
+        <div class="container">
+            <img src="anniversary_medium.jpg" alt="Medium Anniversary Hall" class="event-image">
+            <h2>Anniversary Celebration - Medium Hall</h2>
+            <h3>Price: $10000</h3>
+            <button onclick="location.href='eventbooking.html'">BOOK NOW</button>
+        </div>
+
+        <div class="container">
+            <img src="anniversary_large.jpg" alt="Large Anniversary Hall" class="event-image">
+            <h2>Anniversary Celebration - Large Hall</h2>
+            <h3>Price: $20000</h3>
+            <button onclick="location.href='eventbooking.html'">BOOK NOW</button>
+        </div>
+    </div>
+
+    <!-- Centered Set Your Schedule Button -->
+    <div class="schedule-button-container">
+        <button class="schedule-button" onclick="openSchedulePage()">Set Your Schedule</button>
+    </div>
+
+    <script>
+        function openSchedulePage() {
+            window.location.href = "ok.html"; // Redirect to schedule page
+        }
+    </script>
+</body>
+</html>

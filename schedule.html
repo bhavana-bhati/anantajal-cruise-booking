@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price & Schedule Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #ff758c;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            color: black;
+            margin-bottom: 20px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .price-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        #totalPrice {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Admin Section: Schedule Events -->
+    <div class="container">
+        <h2>Set Available Schedule</h2>
+        <label for="adminEventType">Event Type:</label>
+        <select id="adminEventType">
+            <option value="Birthday">Birthday Party</option>
+            <option value="Anniversary">Anniversary Celebration</option>
+        </select>
+
+        <label for="adminHallType">Select Hall:</label>
+        <select id="adminHallType">
+            <option value="5000">Small Hall - $5000</option>
+            <option value="10000">Medium Hall - $10000</option>
+            <option value="20000">Large Hall - $20000</option>
+        </select>
+
+        <label for="adminEventDate">Select Available Date & Time:</label>
+        <input type="datetime-local" id="adminEventDate">
+
+        <button onclick="setAvailableSchedule()">Set Schedule</button>
+        <p id="adminMessage"></p>
+    </div>
+
+    <!-- Customer Section: View and Book -->
+    <div class="container">
+        <h2>Price & Schedule Your Event</h2>
+
+        <label for="customerEventType">Select Event Type:</label>
+        <select id="customerEventType" onchange="updateAvailableSlots()">
+            <option value="Birthday">Birthday Party</option>
+            <option value="Anniversary">Anniversary Celebration</option>
+        </select>
+
+        <h3>Hall Price Packages:</h3>
+        <div class="price-list">
+            🎉 <strong>Small Hall:</strong> $5000 <br>
+            🎊 <strong>Medium Hall:</strong> $10000 <br>
+            🎈 <strong>Large Hall:</strong> $20000 <br>
+        </div>
+
+        <label for="customerHallType">Choose Hall:</label>
+        <select id="customerHallType">
+            <option value="5000">Small Hall - $5000</option>
+            <option value="10000">Medium Hall - $10000</option>
+            <option value="20000">Large Hall - $20000</option>
+        </select>
+
+        <label for="customerEventDate">Available Dates:</label>
+        <select id="customerEventDate">
+            <option value="">No available slots</option>
+        </select>
+
+        <button onclick="bookEvent()">Book Event</button>
+
+        <p id="eventDetails"></p>
+        <p id="totalPrice">Total Price: $0</p>
+    </div>
+
+    <script>
+        let availableSchedules = [];
+
+        function setAvailableSchedule() {
+            let adminEventType = document.getElementById("adminEventType").value;
+            let adminHallType = document.getElementById("adminHallType").value;
+            let adminEventDate = document.getElementById("adminEventDate").value;
+
+            if (!adminEventDate) {
+                alert("Please select a date and time!");
+                return;
+            }
+
+            availableSchedules.push({
+                eventType: adminEventType,
+                hallType: adminHallType,
+                date: adminEventDate
+            });
+
+            document.getElementById("adminMessage").innerText = `✅ Schedule set for ${adminEventType} on ${adminEventDate}`;
+            updateAvailableSlots();
+        }
+
+        function updateAvailableSlots() {
+            let customerEventType = document.getElementById("customerEventType").value;
+            let customerEventDate = document.getElementById("customerEventDate");
+
+            customerEventDate.innerHTML = "";
+
+            let filteredSchedules = availableSchedules.filter(schedule => schedule.eventType === customerEventType);
+
+            if (filteredSchedules.length === 0) {
+                customerEventDate.innerHTML = `<option value="">No available slots</option>`;
+            } else {
+                filteredSchedules.forEach(schedule => {
+                    let option = document.createElement("option");
+                    option.value = schedule.date;
+                    option.innerText = schedule.date;
+                    customerEventDate.appendChild(option);
+                });
+            }
+        }
+
+        function bookEvent() {
+            let eventType = document.getElementById("customerEventType").value;
+            let hallType = document.getElementById("customerHallType");
+            let selectedHall = hallType.options[hallType.selectedIndex].text;
+            let hallPrice = hallType.value;
+            let eventDate = document.getElementById("customerEventDate").value;
+
+            if (!eventDate) {
+                alert("Please select an available date!");
+                return;
+            }
+
+            document.getElementById("eventDetails").innerHTML = 
+                `🎉 You have booked a <strong>${eventType}</strong> at <strong>${selectedHall}</strong> on <strong>${eventDate}</strong>.`;
+
+            document.getElementById("totalPrice").innerHTML = `Total Price: $${hallPrice}`;
+        }
+    </script>
+</body>
+</html>

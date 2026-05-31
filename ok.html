@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Scheduling & Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ff758c;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            color: black;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background: #ff0066;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scheduling Section -->
+    <div class="container" id="scheduleContainer">
+        <h2>Schedule Your Event</h2>
+
+        <label for="eventType">Select Event Type:</label>
+        <select id="eventType">
+            <option value="Birthday">Birthday Party</option>
+            <option value="Anniversary">Anniversary Celebration</option>
+        </select>
+
+        <label for="hallType">Choose Hall:</label>
+        <select id="hallType">
+            <option value="5000">Small Hall - $5000</option>
+            <option value="10000">Medium Hall - $10000</option>
+            <option value="20000">Large Hall - $20000</option>
+        </select>
+
+        <label for="eventDate">Select Date & Time:</label>
+        <input type="datetime-local" id="eventDate">
+
+        <button onclick="scheduleEvent()">OK</button>
+    </div>
+
+    <!-- Booking Section (Initially Hidden) -->
+    <div class="container hidden" id="bookingContainer">
+        <h2>Book Your Event</h2>
+
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Your Phone:</label>
+        <input type="tel" id="phone" required>
+
+        <label>Event Type:</label>
+        <p id="selectedEvent"></p>
+
+        <label>Hall:</label>
+        <p id="selectedHall"></p>
+
+        <label>Event Date:</label>
+        <p id="selectedDate"></p>
+
+        <label>Total Price:</label>
+        <p id="selectedPrice"></p>
+
+        <button onclick="confirmBooking()">Confirm Booking</button>
+    </div>
+
+    <!-- Confirmation Section (Initially Hidden) -->
+    <div class="container hidden" id="confirmationContainer">
+        <h2>Booking Confirmed 🎉</h2>
+        <p id="confirmationMessage"></p>
+        <button onclick="goHome()">Back to Home</button>
+    </div>
+
+    <script>
+        function scheduleEvent() {
+            let eventType = document.getElementById("eventType").value;
+            let hallType = document.getElementById("hallType");
+            let hallName = hallType.options[hallType.selectedIndex].text;
+            let hallPrice = hallType.value;
+            let eventDate = document.getElementById("eventDate").value;
+
+            if (!eventDate) {
+                alert("Please select a date and time!");
+                return;
+            }
+
+            // Store event details
+            localStorage.setItem("eventType", eventType);
+            localStorage.setItem("hallName", hallName);
+            localStorage.setItem("hallPrice", hallPrice);
+            localStorage.setItem("eventDate", eventDate);
+
+            // Hide schedule section, show booking section
+            document.getElementById("scheduleContainer").classList.add("hidden");
+            document.getElementById("bookingContainer").classList.remove("hidden");
+
+            // Auto-fill booking details
+            document.getElementById("selectedEvent").innerText = eventType;
+            document.getElementById("selectedHall").innerText = hallName;
+            document.getElementById("selectedDate").innerText = eventDate;
+            document.getElementById("selectedPrice").innerText = `$${hallPrice}`;
+        }
+
+        function confirmBooking() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+
+            if (!name || !email || !phone) {
+                alert("Please fill in all details!");
+                return;
+            }
+
+            // Hide booking section, show confirmation section
+            document.getElementById("bookingContainer").classList.add("hidden");
+            document.getElementById("confirmationContainer").classList.remove("hidden");
+
+            // Show confirmation details
+            document.getElementById("confirmationMessage").innerHTML = `
+                Thank you, <strong>${name}</strong>!<br>
+                Your <strong>${localStorage.getItem("eventType")}</strong> is booked at 
+                <strong>${localStorage.getItem("hallName")}</strong> on 
+                <strong>${localStorage.getItem("eventDate")}</strong>.<br>
+                Total Price: <strong>$${localStorage.getItem("hallPrice")}</strong><br>
+                A confirmation has been sent to <strong>${email}</strong>.
+            `;
+        }
+
+        function goHome() {
+    window.location.href = "eventM1.html"; // Change "index.html" to your actual home page
+}
+    </script>
+
+</body>
+</html>

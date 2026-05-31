@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cordelia Cruise Booking</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f0f7;
+            color: #333;
+        }
+        header {
+            background-color: #d81b60; /* Magenta */
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 10px;
+        }
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        #hero img {
+            width: 100%;
+            height: auto;
+            opacity: 0.8;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .hero-text h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+        }
+        .cta-btn {
+            background-color: #c2185b; /* Dark Magenta */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .cta-btn:hover {
+            background-color: #9c1448;
+        }
+        #features, #destinations {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .feature-cards, .destination-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 30%;
+            padding: 20px;
+            background-color: #fce4ec;
+            border-radius: 10px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #880e4f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="navbar">
+            <h1>Cordelia Cruises</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\image3.avif" alt="Cordelia Cruise Banner">
+        <div class="hero-text">
+            <h2>Luxury Awaits at Sea</h2>
+            <p>Embark on an extraordinary journey with Cordelia Cruises. Explore exotic destinations with unmatched luxury.</p>
+            <a href="#features" class="cta-btn">Explore Features</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Why Choose Cordelia Cruises?</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>Luxury Cabins</h3>
+                <p>Experience world-class comfort and services in our luxurious cabins.</p>
+            </div>
+            <div class="card">
+                <h3>Exotic Destinations</h3>
+                <p>Discover breathtaking destinations and make memories of a lifetime.</p>
+            </div>
+            <div class="card">
+                <h3>Fine Dining</h3>
+                <p>Savor global cuisines prepared by our award-winning chefs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations">
+        <h2>Top Destinations</h2>
+        <div class="destination-cards">
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\goa.avif" alt="Goa">
+                <h3>Goa</h3>
+                <p>Golden beaches, vibrant nightlife, and rich history await you.</p>
+            </div>
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\kochi.jpg" alt="Kochi">
+                <h3>Kochi</h3>
+                <p>The Queen of the Arabian Sea, famous for its scenic backwaters.</p>
+            </div>
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\laks.jpg" alt="Lakshadweep">
+                <h3>Lakshadweep</h3>
+                <p>A pristine archipelago of 36 islands with crystal-clear waters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>For inquiries or support, please contact:</p>
+        <p>Email: support@cordeliacruises.com</p>
+        <p>Phone: +91 98765 43210</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Cordelia Cruises. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Optional: Add interactivity or animations here
+        console.log("Welcome to Cordelia Cruises!");
+    </script>
+</body>
+</html>

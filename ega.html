@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Event Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff758c, #ff7eb3);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: white;
+            margin: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Our Event Memories</h1>
+
+    <div class="gallery-container">
+        <div class="gallery-item"><img src="d1.jpg" alt="Event Image 1"></div>
+        <div class="gallery-item"><img src="d2.jpg" alt="Event Image 2"></div>
+        <div class="gallery-item"><img src="d6.jpg" alt="Event Image 3"></div>
+        <div class="gallery-item"><img src="d7.jpg" alt="Event Image 4"></div>
+        <div class="gallery-item"><img src="goa1.jpg" alt="Event Image 5"></div>
+        <div class="gallery-item"><img src="goa2.jpg" alt="Event Image 6"></div>
+        <div class="gallery-item"><img src="goa3.jpg" alt="Event Image 7"></div>
+        <div class="gallery-item"><img src="goa4.jpg" alt="Event Image 8"></div>
+        <div class="gallery-item"><img src="EM9.jpg" alt="Event Image 9"></div>
+        <div class="gallery-item"><img src="EM10.jpg" alt="Event Image 10"></div>
+        <div class="gallery-item"><img src="EM11.jpg" alt="Event Image 11"></div>
+        <div class="gallery-item"><img src="EM12.jpg" alt="Event Image 12"></div>
+    </div>
+
+</body>
+</html>

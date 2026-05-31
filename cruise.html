@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cordelia Cruises</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f0f7;
+            color: #333;
+        }
+        header {
+            background-color: #d81b60; /* Magenta */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar {
+            position: absolute;
+            right: 10px;
+            top: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            background-color: #9c1448;
+        }
+        #hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 80vh;
+            overflow: hidden;
+        }
+        #hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            animation: fade 15s infinite;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+        .hero-text h2 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+        }
+        .cta-btn {
+            background-color: #c2185b;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .cta-btn:hover {
+            background-color: #9c1448;
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        @keyframes fade {
+            0%, 33% { opacity: 1; }
+            34%, 100% { opacity: 0; }
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        #features {
+            background-color: #ffe4e1;
+        }
+        .features-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 30%;
+            background-color: white;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+        footer {
+            background-color: #880e4f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        .gallery-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gallery-card {
+            width: 45%;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .gallery-card img {
+            width: 100%;
+            display: block;
+        }
+        .gallery-card h3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .booking-form input, .booking-form select, .booking-form button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Cordelia Cruises</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="cruise-line.html">Cruise Line</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div id="hero">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\image3.avif" alt="Cruise Image">
+            <div class="hero-text">
+                <h2>Explore Your Dream Holiday</h2>
+                <p>Discover unforgettable adventures with Cordelia Cruises.</p>
+                <a href="#features" class="cta-btn">Explore Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us">
+        <h2>About Us</h2>
+        <p>We offer the best cruise experience to exotic locations with luxury services.</p>
+    </section>
+
+    <!-- Cruise Line Section -->
+    <section id="cruise-line">
+        <h2>Our Cruise Lines</h2>
+        <div class="features-cards">
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\facility.jpg" alt="Luxury Cruise">
+                <h3>Luxury Cruises</h3>
+                <p>Relax in opulent surroundings and world-class service.</p>
+            </div>
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\adventure.jpg" alt="Adventure Cruise">
+               <h3>Adventure Cruises</h3>
+                <p>For those seeking thrill and excitement on the open sea.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-section">
+            <div class="gallery-card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\food.jpg" alt="Dining">
+                <h3>Dining Experience</h3>
+            </div>
+            <div class="gallery-card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\waterpark.jpg" alt="Waterpark">
+                <h3>Waterpark Fun</h3>
+            </div
+            <div class="gallery-card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\nightparty.webp" alt="Night Party">
+                <h3>Night Party</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking-form">
+        <h2>Book Your Cruise</h2>
+        <div class="booking-form">
+            <label for="destination">Choose Your Destination</label>
+            <select id="destination" name="destination">
+                <option value="kochi">Kochi</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="goa">Goa</option>
+                <option value="lakshadweep">Lakshadweep</option>
+            </select>
+            <label for="cruise-date">Select Date</label>
+            <input type="date" id="cruise-date" name="cruise-date">
+            <label for="cabin-type">Select Cabin Type</label>
+            <select id="cabin-type" name="cabin-type">
+                <option value="standard">Standard</option>
+                <option value="luxury">Luxury</option>
+                <option value="suite">Suite</option>
+            </select>
+            <label for="number-of-people">Number of People</label>
+            <input type="number" id="number-of-people" name="number-of-people">
+            <button type="submit">Book Now</button>
+        </div>
+    </section
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Cordelia Cruises. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

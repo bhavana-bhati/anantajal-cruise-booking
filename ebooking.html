@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff758c, #ff7eb3);
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #ff4081;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        button:hover {
+            background: #ff0066;
+        }
+    </style>
+    <script>
+        function submitBooking(event) {
+            event.preventDefault(); // Prevent form from actually submitting
+            alert("Your event has been booked successfully! Redirecting to Home Page...");
+            window.location.href = "eventM1.html"; // Redirect to Home Page
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Book Your Event</h2>
+        <p>Fill in the details below to book your event.</p>
+        <form id="bookingForm" onsubmit="submitBooking(event)">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="phone">Your Phone:</label>
+            <input type="tel" id="phone" required>
+
+            <label for="eventType">Select Event:</label>
+            <select id="eventType" required>
+                <option value="Birthday Party">Birthday Party</option>
+                <option value="Anniversary Celebration">Anniversary Celebration</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="date">Event Date:</label>
+            <input type="date" id="date" required>
+
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+</body>
+</html>

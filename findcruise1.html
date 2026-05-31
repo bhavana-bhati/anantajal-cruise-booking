@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Destination</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient();
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #c2185b;
+            font-size: 2.5rem;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 10px;
+        }
+
+        .destination-card {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 90%;
+            max-width: 1000px;
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .destination-card img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .destination-info {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .destination-info h3 {
+            font-size: 1.8rem;
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .destination-info p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .price-text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #c2185b;
+            margin-top: 10px;
+        }
+
+        .more-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #c2185b, #8e1443);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .more-btn:hover {
+            background: linear-gradient(135deg, #8e1443, #c2185b);
+            transform: translateY(-3px);
+        }
+
+        .reviews-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 15px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .review-box {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+            height: 120px;
+            background: #f5f5dc;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .review-box:hover {
+            transform: scale(1.1);
+            background-color: #e0dac5;
+        }
+
+        .review-box.center::before {
+            content: "Review";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: bold;
+            color: #c2185b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .destination-card {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .destination-card img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .reviews-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Destinations</h2>
+    <div class="destination-container">
+        <div class="destination-card">
+            <img src="https://img.freepik.com/premium-vector/illustrations-vector-icon-travel-vacation-tourism-items-map-glass-camera-map-others_1229301-9121.jpg?ga=GA1.1.1925482040.1742319734&semt=ais_hybrid" alt="Cruise Image">
+            <div class="destination-info">
+                <h3>Mumbai - Kochi</h3>
+                <p>Duration: 2N/3D</p>
+                <div class="price-text">Price: ₹15,000</div>
+                <a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\book1.html" class="more-btn">More Info</a>
+            </div>
+        </div>
+        <div class="reviews-container">
+            <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+            <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+            <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+        </div>
+    </div>
+	
+	    <div class="destination-container">
+        <div class="destination-card">
+            <img src="https://img.freepik.com/premium-vector/illustrations-vector-icon-travel-vacation-tourism-items-map-glass-camera-map-others_1229301-9121.jpg?ga=GA1.1.1925482040.1742319734&semt=ais_hybrid" alt="Cruise Image">
+            <div class="destination-info">
+                <h3>Mumbai - Kochi</h3>
+                <p>Duration: 2N/3D</p>
+                <div class="price-text">Price: ₹15,000</div>
+                <a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\book1.html" class="more-btn">More Info</a>
+            </div>
+        </div>
+        <div class="reviews-container">
+            <div class="review-box">"Amazing experience! Loved every moment on the cruise."</div>
+            <div class="review-box center">"The cruise was fantastic, with breathtaking views and great food!"</div>
+            <div class="review-box">"Best trip ever! Excellent service and a truly relaxing journey."</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cordelia Cruises</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f0f7;
+            color: #333;
+        }
+        header {
+            background-color:  #880e4f; /* Magenta */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar {
+            position: center;
+            right: 10px;
+            top: 20px;
+			font size:"12rem"        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            background-color: #9c1448;
+        }
+        #hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 80vh;
+        }
+       #hero img {
+	     position: absolute;
+		top:-9%;
+		left:-1%;
+        width:1480px;
+		height:600px;
+        opacity: 10;
+        }
+        .hero-text {
+           position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+        .hero-text h2 {
+            font-size: 3rem;
+			color:pink;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .hero-text p {
+		color:pink;
+            font-size: 1.50rem;
+        }
+        .cta-btn {
+            background-color:  #880e4f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .cta-btn:hover {
+            background-color: #9c1448;
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        @keyframes fade {
+            0%, 33% { opacity: 1; }
+            34%, 100% { opacity: 0; }
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #880e4f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        .gallery-header {
+            text-align: left;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .gallery-header h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .gallery-header p {
+            font-size: 20px;
+            color: gray;
+            margin: 5px 0;
+        }
+        .gallery-header .description {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 80%;
+        }
+        .gallery-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-section img:hover {
+            transform: scale(1.05);
+        }
+        .view-gallery-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1><b>ANANTJAL CRUISE</b></h1>
+        <nav class="navbar">
+            <ul>
+               
+                <li><a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\about.html">About Us</a></li>
+                <li><a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\dest2.html">Find Cruise</a></li>
+                <li><a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\offer.html"> Exclusive Offer</a></li>
+                <li><a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\login.html"> Login / Register</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div id="hero">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\image3.avif" alt="Cruise Image">
+            <div class="hero-text">
+                <h2>Explore Your Dream Holiday</h2>
+                <p>Discover unforgettable adventures with Cordelia Cruises.</p>
+                <a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\xdev9.html" class="cta-btn">Explore Now</a>
+            </div>
+        </div>
+    </s`ection>
+
+    <!-- Gallery Section -->
+<body>
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h1>Photo Gallery</h1>
+            <p>Enter for a quick tour</p>
+            <p class="description">Explore breathtaking views, luxurious accommodations, and exciting activities on our cruises. Immerse yourself in a world of adventure and relaxation.</p>
+        </div>
+        <div class="gallery-section">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\d1.jpg" alt="Gallery Image 1" onclick="openLightbox(0)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\facility.jpg" alt="Gallery Image 2" onclick="openLightbox(1)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\adventure.jpg" alt="Gallery Image 3" onclick="openLightbox(2)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\holiday.jpg" alt="Gallery Image 4" onclick="openLightbox(3)">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\waterpark.jpg" alt="Gallery Image 5" onclick="openLightbox(4)">
+            <div class="view-gallery-container">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\n2.webp" alt="Gallery Image 6" onclick="openLightbox(5)">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+  
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Cordelia Cruises. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

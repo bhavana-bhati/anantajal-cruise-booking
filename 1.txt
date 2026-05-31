@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cordelia Cruises</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f0f7;
+            color: #333;
+        }
+        header {
+            background-color: #d81b60; /* Magenta */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar {
+            display: flex;
+            gap: 15px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #9c1448;
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 80vh;
+            overflow: hidden;
+        }
+        #hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+        .hero-text h2 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .cta-btn {
+            background-color: #c2185b;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .cta-btn:hover {
+            background-color: #9c1448;
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Destinations */
+        .destination {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 800px;
+        }
+        .destination img {
+            width: 150px;
+            border-radius: 8px;
+        }
+        .destination .details {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .destination button {
+            background-color: #c2185b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .destination button:hover {
+            background-color: #9c1448;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            padding: 50px 20px;
+        }
+        #gallery h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #gallery .categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .categories button {
+            background-color: #c2185b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .categories button:hover {
+            background-color: #9c1448;
+        }
+        .gallery-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+        .gallery-grid.active {
+            display: grid;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Cordelia Cruises</h1>
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="book-cruise.html">Book Cruise</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <img src="path_to_hero_image.jpg" alt="Cruise Image">
+        <div class="hero-text">
+            <h2>Explore Your Dream Holiday</h2>
+            <a href="#destinations" class="cta-btn">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations">
+        <h2>Popular Destinations</h2>
+        <div class="destination">
+            <img src="mumbai_to_goa.jpg" alt="Mumbai to Goa">
+            <div class="details">
+                <h3>Mumbai to Goa</h3>
+                <p>Experience the serene beauty of Goa starting from Mumbai.</p>
+            </div>
+            <button onclick="revealPrice('Mumbai to Goa')">Reveal Price</button>
+        </div>
+        <!-- Repeat for other destinations -->
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>GALLERY</h2>
+        <p>Quick tour to our cruise</p>
+        <div class="categories">
+            <button onclick="showGallery('dining')">Dining</button>
+            <button onclick="showGallery('adventure')">Adventure</button>
+            <button onclick="showGallery('waterpark')">Water Park</button>
+            <button onclick="showGallery('nightparty')">Night Party</button>
+        </div>
+        <div id="dining" class="gallery-grid">
+            <img src="dining1.jpg" alt="Dining 1">
+            <img src="dining2.jpg" alt="Dining 2">
+            <!-- Add more images -->
+        </div>
+        <div id="adventure" class="gallery-grid">
+            <img src="adventure1.jpg" alt="Adventure 1">
+            <img src="adventure2.jpg" alt="Adventure 2">
+            <!-- Add more images -->
+        </div>
+        <div id="waterpark" class="gallery-grid">
+            <img src="waterpark1.jpg" alt="Water Park 1">
+            <img src="waterpark2.jpg" alt="Water Park 2">
+            <!-- Add more images -->
+        </div>
+        <div id="nightparty" class="gallery-grid">
+            <img src="nightparty1.jpg" alt="Night Party 1">
+            <img src="nightparty2.jpg" alt="Night Party 2">
+            <!-- Add more images -->
+        </div>
+    </section>
+
+    <script>
+        function revealPrice(destination) {
+            const isLoggedIn = false; // Replace with actual login check
+            if (isLoggedIn) {
+                alert(`Price for ${destination}: $500`); // Example price
+            } else {
+                alert('Please log in to reveal the price.');
+                window.location.href = 'login.html';
+            }
+        }
+
+        function showGallery(category) {
+            const galleries = document.querySelectorAll('.gallery-grid');
+            galleries.forEach(gallery => gallery.classList.remove('active'));
+            document.getElementById(category).classList.add('active');
+        }
+    </script>
+</body>
+</html>

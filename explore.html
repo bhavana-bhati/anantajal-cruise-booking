@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Destinations</title>
+    <style>  
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #880e4f;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        #destinations {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .destination-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+			 flex-wrap: wrap;
+           
+        }
+
+        .card {
+            width: 30%;
+            padding: 20px;
+            background-color: #fce4ec;
+            border-radius: 10px;
+            margin: 10px;
+            transition: transform 0.4s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+		
+		
+        footer {
+            background-color: #880e4f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+       @media (max-width: 500px) {
+            .card {
+                width: 100%;
+            }
+        
+	 
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Top Destinations</h1>
+    </header>
+    
+    <section id="destinations">
+        <h2>Explore the Best Places</h2>
+        <div class="destination-cards">
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\goa.avif" alt="Golden beaches and vibrant nightlife in Goa">
+                <h3>Goa</h3>
+                <p>Golden beaches, vibrant nightlife, and rich history await you.</p>
+            </div>
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\kochi.jpg" alt="Beautiful backwaters in Kochi">
+                <h3>Kochi</h3>
+                <p>The Queen of the Arabian Sea, famous for its scenic backwaters.</p>
+            </div>
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\laks.jpg" alt="Pristine islands of Lakshadweep">
+                <h3>Lakshadweep</h3>
+                <p>A pristine archipelago of 36 islands with crystal-clear waters.</p>
+            </div>
+            <div class="card">
+                <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\mumbai.jpg" alt="Majestic palaces and rich culture of Jaipur">
+                <h3>Mumbai</h3>
+                <p>The Pink City, known for its palaces, forts, and rich cultural heritage.</p>
+            </div>
+        </div>
+		</body>
+
+
+ 
+		<footer>
+        <p>&copy; 2025 Top Destinations. All rights reserved.</p>
+    </footer>
+</body>
+</html>

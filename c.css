@@ -1,0 +1,38 @@
+<style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f0f7;
+            color: #333;
+        }
+        header {
+            background-color: #d81b60; /* Magenta */
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .about-us-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .about-us-section img {
+            width: 50%; /* Medium size */
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .about-us-section h2 {
+            font-size: 2.5em;
+            color: #d81b60;
+        }
+        .about-us-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+		</stlye>

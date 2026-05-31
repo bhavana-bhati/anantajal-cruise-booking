@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Budget Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #ff758c;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            color: black;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+        }
+        #totalCost {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Event Budget Calculator</h2>
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" min="1" value="50">
+        
+        <label for="venue">Choose Venue:</label>
+        <select id="venue">
+            <option value="5000">Small Hall ($5000)</option>
+            <option value="10000">Medium Hall ($10000)</option>
+            <option value="20000">Large Hall ($20000)</option>
+        </select>
+
+        <label for="catering">Catering Per Person ($):</label>
+        <input type="number" id="catering" min="10" value="20">
+
+        <button onclick="calculateBudget()">Calculate</button>
+        <p id="totalCost">Total Cost: $0</p>
+    </div>
+
+    <script>
+        function calculateBudget() {
+            let guests = document.getElementById("guests").value;
+            let venue = document.getElementById("venue").value;
+            let catering = document.getElementById("catering").value;
+
+            let totalCost = parseInt(venue) + (parseInt(catering) * parseInt(guests));
+            document.getElementById("totalCost").innerHTML = "Total Cost: $" + totalCost;
+        }
+    </script>
+</body>
+</html>

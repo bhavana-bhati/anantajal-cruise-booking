@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anantjal Cruise</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f0f7;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #880e4f; /* Magenta */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo and Title Container */
+        .logo-title {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Logo Styling */
+        .logo {
+            height: 150px; /* Adjust height as needed */
+            width: 50%; /* Keeps aspect ratio */
+            margin-right: 15px; /* Space between logo and text */
+        }
+
+        /* Title Styling */
+        .logo-title h1 {
+            font-size: 2.5rem;
+			/* Adjust text size */
+			color#c2185b;
+        }
+
+        /* Navigation Bar */
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #9c1448;
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 80vh;
+        }
+
+        #hero img {
+            width: 100%;
+            height: 600px;
+            opacity: 1;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-text h2 {
+            font-size: 3rem;
+            color: pink;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-text p {
+            color: pink;
+            font-size: 1.5rem;
+        }
+
+        .cta-btn {
+            background-color: #880e4f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: #9c1448;
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gallery-header {
+            text-align: left;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .gallery-header h1 {
+            font-size: 55px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .gallery-header p {
+            font-size: 33px;
+            color: black;
+            margin: 5px 0;
+        }
+
+        .gallery-header .description {
+            font-size: 25px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 80%;
+        }
+
+        .gallery-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #880e4f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo-title">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\L.png" alt="Anantjal Cruise Logo" class="logo">
+            <h1><b>ANANTJAL CRUISE</b></h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="dest2.html">Find Cruise</a></li>
+                <li><a href="C:\Users\bhavanabhati\OneDrive\Desktop\project\offer.html">Special Offer</a></li>
+                <li><a href="login.html">Login / Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div id="hero">
+            <img src="image3.avif" alt="Cruise Image">
+            <div class="hero-text">
+                <h2>Explore Your Dream Holiday</h2>
+                <p>Discover unforgettable adventures with Anantjal Cruises.</p>
+                <a href="xdev9.html" class="cta-btn">Explore Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h1>PHOTO GALLERY</h1>
+            <p>Enter for a quick tour</p>
+            <p class="description">Explore breathtaking views, luxurious accommodations, and exciting activities on our cruises. Immerse yourself in a world of adventure and relaxation.</p>
+        </div>
+        <div class="gallery-section">
+            <img src="d1.jpg" alt="Gallery Image 1">
+            <img src="facility.jpg" alt="Gallery Image 2">
+            <img src="adventure.jpg" alt="Gallery Image 3">
+            <img src="holiday.jpg" alt="Gallery Image 4">
+            <img src="waterpark.jpg" alt="Gallery Image 5">
+            <img src="n2.webp" alt="Gallery Image 6">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Anantjal Cruises. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

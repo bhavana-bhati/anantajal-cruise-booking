@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Offers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .offers-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100vw;
+            min-height: 80vh;
+            overflow: hidden;
+            position: relative;
+            gap: 20px;
+        }
+        .offer-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            visibility: hidden;
+        }
+        .offer-card img {
+            width: 100%;
+            border-radius: 20px;
+        }
+        .btn {
+            background-color: #c2185b;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #8e1443;
+        }
+        @keyframes slideIn {
+            0% { transform: translateX(100vw); visibility: visible; opacity: 0; }
+            100% { transform: translateX(0); visibility: visible; opacity: 1; }
+        }
+        .offer-card:nth-child(1) { animation: slideIn 1s ease-in-out forwards; }
+        .offer-card:nth-child(2) { animation: slideIn 1.5s ease-in-out forwards; }
+        .offer-card:nth-child(3) { animation: slideIn 2s ease-in-out forwards; }
+    </style>
+</head>
+<body>
+    <h2 style="color: #c2185b; font-size:50px">EXCLUSIVE CRUISE OFFERS</h2>
+    <div class="offers-container">
+        <div class="offer-card">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\c7.jpg" alt="Offer 1">
+            <h3> "Royal Cruise to Lakshadweep"</h3>
+            <p>Only ₹8,000! Limited seats available.</p>
+            <a href="bokking.html" class="btn">Claim Offer</a>
+        </div>
+        <div class="offer-card">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\c6.jpg" alt="Offer 2">
+            <h3>Romantic Getaway</h3>
+            <p>Special couples discount! ₹5,000 per person.</p>
+            <a href="bokking.html" class="btn">Claim Offer</a>
+        </div>
+        <div class="offer-card">
+            <img src="C:\Users\bhavanabhati\OneDrive\Desktop\project\c5.jpg" alt="Offer 3">
+            <h3>Adventure Cruise</h3>
+            <p>Thrilling activities included! ₹6,000 per person.</p>
+            <a href="bokking.html" class="btn">Claim Offer</a>
+        </div>
+    </div>
+</body>
+</html>
